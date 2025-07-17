@@ -18,10 +18,3 @@ This user-friendly system enables:
 🔄 Order & Reservation Modification – Modify or cancel orders and bookings easily.
 
 📈 Admin Dashboard – Manage restaurants, menus, orders, and reservations efficiently
-
-
-🤝 Contribution
-Want to contribute or extend? Feel free to fork and submit a PR. Open issues welcome!
-
-📄 License
-This project is licensed under the MIT License.
