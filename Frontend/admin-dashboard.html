@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Restaurant Bot</title>
+  <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+  <h1>📊 Admin Dashboard</h1>
+
+  <div class="dashboard-section">
+    <button onclick="fetchStats()">Load Dashboard Stats</button>
+    <div id="statsOutput"></div>
+  </div>
+
+  <div class="dashboard-section">
+    <h2>📦 All Orders</h2>
+    <button onclick="fetchOrders()">Refresh Orders</button>
+    <div id="ordersList"></div>
+  </div>
+
+  <script>
+    const baseUrl = 'http://localhost:5000';
+
+    async function fetchStats() {
+      const res = await fetch(`${baseUrl}/api/admin/stats`);
+      const data = await res.json();
+      document.getElementById('statsOutput').innerHTML = `
+        <p><b>Total Orders:</b> ${data.totalOrders}</p>
+        <p><b>Total Revenue:</b> ₹${data.totalRevenue}</p>
+        <p><b>Status Breakdown:</b></p>
+        <ul>${data.statusCounts.map(s => `<li>${s._id}: ${s.count}</li>`).join('')}</ul>
+      `;
+    }
+
+    async function fetchOrders() {
+      const res = await fetch(`${baseUrl}/api/admin/orders`);
+      const data = await res.json();
+      document.getElementById('ordersList').innerHTML = data.map(o => `
+        <div class="order-card">
+          <p><b>Order ID:</b> ${o._id}</p>
+          <p><b>Email:</b> ${o.userEmail}</p>
+          <p><b>Status:</b> ${o.status}</p>
+          <p><b>Total:</b> ₹${o.totalAmount}</p>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>
