@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Restaurant Bot</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+  <h1>🍽️ Restaurant Bot</h1>
+
+  <div class="section">
+    <h2>🔍 Search Restaurants</h2>
+    <input type="text" id="searchInput" placeholder="Cuisine / Location / Keyword">
+    <button onclick="searchRestaurants()">Search</button>
+    <div id="restaurantResults"></div>
+  </div>
+
+  <div class="section">
+    <h2>📦 Place Order</h2>
+    <input type="email" id="userEmail" placeholder="Enter Email">
+    <input type="text" id="restaurantId" placeholder="Restaurant ID">
+    <textarea id="orderItems" placeholder='[{"name":"Pizza","quantity":2,"price":200}]'></textarea>
+    <button onclick="placeOrder()">Place Order</button>
+  </div>
+
+  <div class="section">
+    <h2>💳 Pay for Order</h2>
+    <input type="text" id="dbOrderId" placeholder="Order ID from DB">
+    <input type="number" id="amount" placeholder="Amount (₹)">
+    <input type="text" id="receipt" placeholder="Receipt ID (any)">
+    <button onclick="payWithRazorpay()">Pay Now</button>
+  </div>
+
+  <div class="section">
+    <h2>🚚 Track Order</h2>
+    <input type="text" id="trackOrderId" placeholder="Order ID">
+    <button onclick="trackOrder()">Track</button>
+    <pre id="trackResult"></pre>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
