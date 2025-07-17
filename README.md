@@ -11,7 +11,7 @@ This user-friendly system enables:
 
 🛒 Ordering System – Place delivery or pickup orders with a smooth cart interface.
 
-💳 Secure Payments – Make secure payments through integrated gateways like Razorpay/Stripe.
+💳 Secure Payments – Make secure payments through integrated gateways i.e Razorpay.
 
 🚚 Real-Time Order Tracking – Stay updated on your order from placement to delivery.
 
